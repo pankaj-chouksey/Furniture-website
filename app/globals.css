@@ -1,26 +1,90 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f8f6f2;
+  --foreground: #1f2937;
+
+  --primary: #8b5e3c;
+  --secondary: #c8a97e;
+  --accent: #d4af37;
+
+  --card: #ffffff;
+  --border: #e5e7eb;
+
+  --font-heading: var(--font-playfair);
+  --font-body: var(--font-inter);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+}
+
+section {
+  padding: 5rem 1.5rem;
+}
+
+.container-custom {
+  max-width: 1280px;
+  margin-inline: auto;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* ── Hero: remove section padding so it fills viewport ── */
+section.hero-full {
+  padding: 0;
+}
+
+/* ── Gold shimmer text effect ── */
+@keyframes shimmer-gold {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.shimmer-gold {
+  background: linear-gradient(
+    100deg,
+    #C8A97E 0%,
+    #f0d9b5 30%,
+    #C8A97E 50%,
+    #d4af37 70%,
+    #C8A97E 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer-gold 4s linear infinite;
+}
+
+/* ── Smooth text selection ── */
+::selection {
+  background: rgba(200, 169, 126, 0.25);
+  color: #fff;
+}
+
+/* ── Framer Motion — respect reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
