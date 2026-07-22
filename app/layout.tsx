@@ -13,7 +13,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Oak & Stone",
+  title: "DK Furnitures",
   description: "Luxury Furniture for Modern Living",
 };
 

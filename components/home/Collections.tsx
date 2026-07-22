@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import {
   motion,
   useScroll,
@@ -69,7 +69,7 @@ function ImageCard({
 }) {
   return (
     <motion.div
-      className="relative flex-shrink-0 overflow-hidden rounded-2xl"
+      className="relative flex-shrink-0 overflow-hidden rounded-2xl snap-start"
       style={{
         width:  "clamp(240px, 22vw, 320px)",
         height: "clamp(300px, 52vh, 460px)",
@@ -83,7 +83,7 @@ function ImageCard({
         ease: [0.22, 1, 0.36, 1],
       }}
     >
-      <Link href="/collection" className="group block h-full">
+      <Link href="/collection" className="group block h-full relative">
         <Image
           src={src}
           alt={title}
@@ -121,6 +121,15 @@ const images = [
 ];
 
 export default function Collections() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   /* ── 1. Tall wrapper — this is what the browser scrolls through ── */
   const pinnedRef = useRef<HTMLDivElement>(null);
 
@@ -140,6 +149,7 @@ export default function Collections() {
 
   /* Map 0→1 to 0→-(horizontal travel distance) */
   const x = useTransform(spring, [0, 1], [0, -(EXTRA_SCROLL - 400)]);
+  const progressWidth = useTransform(spring, [0, 1], ["0%", "100%"]);
 
   return (
     <section className="bg-[#f5f3ef]" style={{ padding: 0 }}>
@@ -198,11 +208,15 @@ export default function Collections() {
       ─────────────────────────────────────────────────────────── */}
       <div
         ref={pinnedRef}
-        style={{ height: `calc(100vh + ${EXTRA_SCROLL}px)` }}
+        style={{ height: isMobile ? "auto" : `calc(100vh + ${EXTRA_SCROLL}px)` }}
       >
         {/* Sticky viewport — stays locked while wrapper scrolls */}
         <div
-          className="sticky top-0 flex h-screen items-center overflow-hidden bg-[#f5f3ef]"
+          className={
+            isMobile
+              ? "relative flex flex-col h-auto bg-[#f5f3ef] pt-10 pb-16"
+              : "sticky top-0 flex h-screen items-center overflow-hidden bg-[#f5f3ef]"
+          }
         >
           {/* Left label */}
           <div className="relative z-10 flex-shrink-0 px-8 lg:px-16">
@@ -227,7 +241,7 @@ export default function Collections() {
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.35, duration: 0.7 }}
+              transition={{ delay: 0.3, duration: 0.7 }}
             >
               200+ Categories
             </motion.p>
@@ -249,15 +263,23 @@ export default function Collections() {
 
           {/* ── Horizontally translating image strip with smooth CSS mask blend ── */}
           <div
-            className="relative flex-1 overflow-hidden"
-            style={{
-              maskImage: "linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%)",
-              WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%)",
-            }}
+            className={
+              isMobile
+                ? "relative w-full overflow-x-auto snap-x snap-mandatory pb-6 mt-10"
+                : "relative flex-1 overflow-hidden"
+            }
+            style={
+              isMobile
+                ? undefined
+                : {
+                    maskImage: "linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%)",
+                    WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%)",
+                  }
+            }
           >
             <motion.div
-              className="flex gap-5 pl-8"
-              style={{ x, willChange: "transform" }}
+              className={isMobile ? "flex gap-5 px-8" : "flex gap-5 pl-8"}
+              style={isMobile ? { willChange: "transform" } : { x, willChange: "transform" }}
             >
               {images.map((img, i) => (
                 <ImageCard key={img.title} {...img} index={i} />
@@ -266,21 +288,25 @@ export default function Collections() {
           </div>
 
           {/* Progress bar at bottom */}
-          <motion.div
-            className="absolute bottom-0 left-0 h-[2px] bg-[#8B5E3C]"
-            style={{ width: useTransform(spring, [0, 1], ["0%", "100%"]) }}
-          />
+          {!isMobile && (
+            <motion.div
+              className="absolute bottom-0 left-0 h-[2px] bg-[#8B5E3C]"
+              style={{ width: progressWidth }}
+            />
+          )}
 
           {/* Ghost label */}
-          <motion.p
-            className="absolute bottom-6 right-10 text-[9px] font-bold uppercase tracking-[0.35em] text-gray-300"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.7, duration: 0.8 }}
-          >
-            Scroll to explore
-          </motion.p>
+          {!isMobile && (
+            <motion.p
+              className="absolute bottom-6 right-10 text-[9px] font-bold uppercase tracking-[0.35em] text-gray-300"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.7, duration: 0.8 }}
+            >
+              Scroll to explore
+            </motion.p>
+          )}
         </div>
       </div>
 

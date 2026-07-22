@@ -60,7 +60,7 @@ export default function Hero() {
         <motion.div className="absolute inset-0" style={{ y: panY }}>
           <Image
             src="/images/hero/hero.png"
-            alt="Oak & Stone — Luxury Furniture"
+            alt="DK Furnitures — Luxury Furniture"
             fill
             priority
             className="object-cover object-center"

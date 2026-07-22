@@ -13,7 +13,7 @@ const features = [
 
 export default function WhyUs() {
   return (
-    <section className="relative h-screen min-h-[700px] w-full overflow-hidden bg-[#16120e]">
+    <section className="relative h-auto md:h-screen md:min-h-[700px] w-full overflow-hidden bg-[#16120e]">
 
       {/* ── Background Image ── */}
       <div className="absolute inset-0">
@@ -29,11 +29,11 @@ export default function WhyUs() {
         <div className="absolute inset-0 bg-black/20" />
       </div>
 
-      <div className="relative flex h-full w-full">
+      <div className="relative flex flex-col md:flex-row h-full w-full">
 
         {/* ── Glassmorphism Sidebar (Left) ── */}
         <motion.div
-          className="relative flex h-full w-[280px] flex-col justify-between border-r border-white/10 bg-black/30 px-10 py-16 backdrop-blur-md md:w-[320px] lg:w-[380px]"
+          className="relative flex h-auto md:h-full w-full md:w-[320px] lg:w-[380px] flex-col justify-between border-b md:border-b-0 md:border-r border-white/10 bg-black/30 px-8 py-10 md:px-10 md:py-16 backdrop-blur-md"
           initial={{ x: -100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           viewport={{ once: true }}
@@ -72,7 +72,7 @@ export default function WhyUs() {
         </motion.div>
 
         {/* ── Main Content Area (Right) ── */}
-        <div className="relative flex flex-1 flex-col p-10 md:p-16 lg:p-24">
+        <div className="relative flex flex-1 flex-col p-8 md:p-16 lg:p-24">
 
           {/* Centered Large Typography */}
           <div className="flex flex-1 items-center justify-center lg:justify-start lg:pl-10">
@@ -83,8 +83,8 @@ export default function WhyUs() {
               viewport={{ once: true }}
               transition={{ delay: 0.2, duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
             >
-              OAK &<br />
-              STONE
+              DK<br />
+              FURNITURES
             </motion.h2>
           </div>
 

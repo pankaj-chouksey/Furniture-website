@@ -24,7 +24,7 @@ function Field({
   const lifted = focused || val.length > 0;
 
   return (
-    <div className={`relative pt-6 ${span2 ? "col-span-2" : ""}`}>
+    <div className={`relative pt-6 ${span2 ? "col-span-1 sm:col-span-2" : "col-span-1"}`}>
       <label
         htmlFor={name}
         className={`pointer-events-none absolute left-0 transition-all duration-300 ease-out ${
@@ -96,7 +96,7 @@ export default function ContactPage() {
           <div className="absolute inset-0">
             <Image
               src="/images/whyus/whyus.jpeg"
-              alt="Oak & Stone Studio"
+              alt="DK Furnitures Studio"
               fill
               className="object-cover opacity-[0.18] scale-110"
               style={{ objectPosition: "center 40%" }}
@@ -158,7 +158,7 @@ export default function ContactPage() {
               {[
                 { label: "Atelier",  value: "14 Belgravia Mews, London SW1X 8PL" },
                 { label: "Phone",    value: "+44 (0) 20 7123 4567" },
-                { label: "Email",    value: "hello@oakandstone.com" },
+                { label: "Email",    value: "hello@dkfurnitures.com" },
               ].map(({ label, value }, i) => (
                 <div
                   key={label}
@@ -216,7 +216,7 @@ export default function ContactPage() {
                   onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }}
                 >
                   {/* Fields */}
-                  <div className="grid grid-cols-2 gap-x-10 gap-y-10">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-10">
                     <Field label="First Name"     name="first_name" />
                     <Field label="Last Name"      name="last_name"  />
                     <Field label="Email Address"  name="email"  type="email" />
@@ -324,7 +324,7 @@ export default function ContactPage() {
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.9 }}
                 >
-                  Oak &amp; Stone · London
+                  DK Furnitures · London
                 </motion.p>
               </motion.div>
             )}

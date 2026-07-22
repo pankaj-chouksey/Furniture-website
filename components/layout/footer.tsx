@@ -13,7 +13,7 @@ export default function Footer() {
           {/* ── Brand & Ethos (Left Column) ── */}
           <div className="lg:col-span-4 lg:pr-12">
             <h2 className="font-serif text-3xl font-semibold">
-              OAK<span className="text-[#C8A97E]">&</span>STONE
+              DK<span className="text-[#C8A97E]"> </span>FURNITURES
             </h2>
             <p className="mt-6 text-sm leading-relaxed text-white/50">
               Crafting legacies, not just furniture. We source the finest sustainable materials to build pieces that endure through generations, blending timeless aesthetics with modern functionality.
@@ -101,7 +101,7 @@ export default function Footer() {
         {/* ── Bottom Bar ── */}
         <div className="mt-24 flex flex-col items-center justify-between gap-6 border-t border-white/10 pt-8 md:flex-row">
           <p className="text-xs text-white/40">
-            © {new Date().getFullYear()} Oak & Stone. All rights reserved.
+            © {new Date().getFullYear()} DK Furnitures. All rights reserved.
           </p>
           
           <div className="flex gap-6">
