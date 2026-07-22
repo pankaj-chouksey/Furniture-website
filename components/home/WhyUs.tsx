@@ -83,7 +83,6 @@ export default function WhyUs() {
               viewport={{ once: true }}
               transition={{ delay: 0.2, duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
             >
-              DK<br />
               FURNITURES
             </motion.h2>
           </div>

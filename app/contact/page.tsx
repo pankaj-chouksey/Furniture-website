@@ -96,7 +96,7 @@ export default function ContactPage() {
           <div className="absolute inset-0">
             <Image
               src="/images/whyus/whyus.jpeg"
-              alt="DK Furnitures Studio"
+              alt="Furnitures Studio"
               fill
               className="object-cover opacity-[0.18] scale-110"
               style={{ objectPosition: "center 40%" }}
@@ -158,7 +158,7 @@ export default function ContactPage() {
               {[
                 { label: "Atelier",  value: "14 Belgravia Mews, London SW1X 8PL" },
                 { label: "Phone",    value: "+44 (0) 20 7123 4567" },
-                { label: "Email",    value: "hello@dkfurnitures.com" },
+                { label: "Email",    value: "hello@furnitures.com" },
               ].map(({ label, value }, i) => (
                 <div
                   key={label}
@@ -324,7 +324,7 @@ export default function ContactPage() {
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.9 }}
                 >
-                  DK Furnitures · London
+                  Furnitures · London
                 </motion.p>
               </motion.div>
             )}

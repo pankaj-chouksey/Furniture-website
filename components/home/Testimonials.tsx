@@ -8,19 +8,19 @@ const testimonials = [
   {
     name: "Eleanor Richards",
     role: "Interior Designer",
-    text: "The craftsmanship is unparalleled. DK Furnitures pieces don't just fill a room; they define its character. Every client I've specified them for has been absolutely thrilled.",
+    text: "The craftsmanship is unparalleled. Furnitures pieces don't just fill a room; they define its character. Every client I've specified them for has been absolutely thrilled.",
     rating: 5,
   },
   {
     name: "James Cavendish",
     role: "Homeowner",
-    text: "We furnished our entire dining room with DK Furnitures. The table is a masterpiece, and the delivery process was seamless. Truly a white-glove experience from start to finish.",
+    text: "We furnished our entire dining room with Furnitures. The table is a masterpiece, and the delivery process was seamless. Truly a white-glove experience from start to finish.",
     rating: 5,
   },
   {
     name: "Sophia Laurent",
     role: "Architect",
-    text: "Finding furniture that respects both modern minimalism and traditional durability is rare. DK Furnitures achieves this balance perfectly. Built to last generations.",
+    text: "Finding furniture that respects both modern minimalism and traditional durability is rare. Furnitures achieves this balance perfectly. Built to last generations.",
     rating: 5,
   },
   {

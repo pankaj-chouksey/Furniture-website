@@ -55,7 +55,7 @@ export default function Cta() {
             viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
-            Schedule a complimentary consultation with our design experts and discover how DK Furnitures can bring your vision to life.
+            Schedule a complimentary consultation with our design experts and discover how Furnitures can bring your vision to life.
           </motion.p>
 
           {/* CTA Buttons */}

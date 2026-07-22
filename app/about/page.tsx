@@ -32,7 +32,7 @@ export default function AboutPage() {
           <motion.div className="absolute inset-0" style={{ y: heroY, scale: heroScale }}>
             <Image
               src="/images/whyus/whyus.jpeg"
-              alt="DK Furnitures Heritage"
+              alt="Furnitures Heritage"
               fill
               className="object-cover object-center opacity-60 grayscale-[30%]"
               priority
@@ -111,7 +111,7 @@ export default function AboutPage() {
                 transition={{ delay: 0.2, duration: 1, ease: [0.22, 1, 0.36, 1] }}
               >
                 <p className="text-lg leading-relaxed text-gray-600 font-light">
-                  Founded on the principle that true luxury is defined by permanence, DK Furnitures was born out of a desire to create furniture that outlasts the ephemera of modern trends. We believe that your home is a living sanctuary, and the pieces within it should hold meaning, character, and absolute integrity.
+                  Founded on the principle that true luxury is defined by permanence, Furnitures was born out of a desire to create furniture that outlasts the ephemera of modern trends. We believe that your home is a living sanctuary, and the pieces within it should hold meaning, character, and absolute integrity.
                 </p>
                 <p className="text-lg leading-relaxed text-gray-600 font-light">
                   Every dining table, lounge chair, and bedframe that leaves our workshop is the culmination of hundreds of hours of design refinement and masterful craftsmanship. We don't believe in shortcuts. We believe in wood that ages beautifully, joinery that holds forever, and finishes that tell a story over time.

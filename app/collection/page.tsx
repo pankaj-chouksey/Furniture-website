@@ -77,7 +77,7 @@ export default function CollectionPage() {
     target: headerRef,
     offset: ["start end", "end start"],
   });
-  
+
   // Slower parallax for the main large image
   const y1 = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
   // Faster reverse parallax for the smaller offset image
@@ -93,10 +93,10 @@ export default function CollectionPage() {
       <Navbar />
 
       <main className="bg-[#f8f6f2] pb-24">
-        
+
         {/* ── Editorial Split Parallax Header ── */}
         <section ref={headerRef} className="relative flex min-h-[80vh] w-full flex-col lg:flex-row pt-32 pb-12">
-          
+
           {/* Left: Typography (Sticky-like behavior achieved via layout) */}
           <div className="flex w-full flex-col justify-center px-6 lg:w-5/12 lg:pl-16 lg:pr-12 xl:pl-24">
             <motion.div
@@ -120,9 +120,9 @@ export default function CollectionPage() {
 
           {/* Right: Parallax Image Collage */}
           <div className="relative mt-16 flex h-[60vh] w-full items-center justify-center px-6 lg:mt-0 lg:h-auto lg:w-7/12 lg:pr-16 xl:pr-24">
-            
+
             {/* Main Image (Back) */}
-            <motion.div 
+            <motion.div
               className="relative aspect-[3/4] w-3/4 max-w-md overflow-hidden rounded-2xl shadow-2xl lg:w-2/3"
               style={{ y: y1 }}
               initial={{ opacity: 0, scale: 0.95 }}
@@ -139,7 +139,7 @@ export default function CollectionPage() {
             </motion.div>
 
             {/* Accent Image (Front, Parallax) */}
-            <motion.div 
+            <motion.div
               className="absolute -bottom-10 right-4 aspect-[4/5] w-2/5 max-w-[240px] overflow-hidden rounded-xl border-4 border-[#f8f6f2] shadow-xl lg:-left-12 lg:bottom-12 lg:right-auto"
               style={{ y: y2 }}
               initial={{ opacity: 0, y: 50 }}
@@ -157,20 +157,19 @@ export default function CollectionPage() {
         </section>
 
         {/* ── Toolbar & Filters ── */}
-        <section className="container-custom mt-20 px-6 lg:px-12">
+        <section className="container-custom mt-6 px-6 lg:px-12 pb-[60px]">
           <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
-            
+
             {/* Category Pills */}
             <div className="flex flex-wrap items-center justify-center gap-3">
               {categories.map((category) => (
                 <button
                   key={category}
                   onClick={() => setActiveCategory(category)}
-                  className={`rounded-full border px-6 py-2.5 text-[11px] font-semibold uppercase tracking-widest transition-all duration-300 ${
-                    activeCategory === category
-                      ? "border-gray-900 bg-gray-900 text-white"
-                      : "border-gray-300 bg-transparent text-gray-500 hover:border-gray-400 hover:text-gray-900"
-                  }`}
+                  className={`rounded-full border px-6 py-2.5 text-[11px] font-semibold uppercase tracking-widest transition-all duration-300 ${activeCategory === category
+                    ? "border-gray-900 bg-gray-900 text-white"
+                    : "border-gray-300 bg-transparent text-gray-500 hover:border-gray-400 hover:text-gray-900"
+                    }`}
                 >
                   {category}
                 </button>
@@ -183,13 +182,13 @@ export default function CollectionPage() {
               <div className="h-4 w-px bg-gray-300" />
               <button className="uppercase hover:text-gray-900">Sort By</button>
             </div>
-            
+
           </div>
         </section>
 
         {/* ── Product Grid ── */}
-        <section className="container-custom mt-16 px-6 lg:px-12">
-          <motion.div 
+        <section className="container-custom mt-0 px-6 lg:px-12">
+          <motion.div
             className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8"
             layout
           >
@@ -211,10 +210,10 @@ export default function CollectionPage() {
                     fill
                     className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
                   />
-                  
+
                   {/* Overlay on hover */}
                   <div className="absolute inset-0 bg-black/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                  
+
                   {/* Quick View Button */}
                   <div className="absolute bottom-6 left-1/2 -translate-x-1/2 translate-y-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
                     <Link href={`/collection`} className="block rounded-full bg-white px-6 py-3 text-[10px] font-bold uppercase tracking-wider text-gray-900 shadow-xl hover:bg-gray-50">

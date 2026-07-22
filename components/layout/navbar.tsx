@@ -47,7 +47,7 @@ export default function Navbar() {
               scrolled || !isDarkBg ? "text-gray-900" : "text-white"
             }`}
           >
-            DK<span className="text-[#C8A97E]"> </span>Furnitures
+            Furnitures
           </Link>
 
           <div className="hidden items-center gap-8 md:flex">
